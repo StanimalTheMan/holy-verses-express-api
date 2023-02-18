@@ -16,6 +16,7 @@ model User {
   username  String   @unique
   password  String
   verses     Verse[]
+  theme String?
 }
 
 model Verse {
