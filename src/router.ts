@@ -10,6 +10,17 @@ router.get("/verse", (req, res) => {
 router.get("/verse/:id", () => {});
 router.put(
   "/verse/:id",
+  body("content").optional().isString(),
+  body("book").optional().isString(),
+  body("chapter").optional().isInt(),
+  body("translation").optional().isString(),
+  body("verses").optional().isArray({ min: 1 }),
+  check("verses.*").isInt(),
+  handleInputErrors,
+  (req, res) => {}
+);
+router.post(
+  "/verse",
   body("content").isString(),
   body("book").isString(),
   body("chapter").isInt(),
@@ -17,9 +28,10 @@ router.put(
   body("verses").isArray({ min: 1 }),
   check("verses.*").isInt(),
   handleInputErrors,
-  (req, res) => {}
+  (req, res) => {
+    console.log(req);
+  }
 );
-router.post("/verse", () => {});
 router.delete("/verse/:id", () => {});
 
 export default router;
