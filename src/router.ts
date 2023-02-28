@@ -1,12 +1,17 @@
-import { createVerse, getOneVerse, getVerses } from "./handlers/verse";
+import {
+  createVerse,
+  deleteVerse,
+  getOneVerse,
+  getVerses,
+} from "./handlers/verse";
 import { handleInputErrors } from "./modules/middleware";
 import { Router } from "express";
-import { body, check, validationResult } from "express-validator";
+import { body, check } from "express-validator";
 
 const router = Router();
 
 router.get("/verse", getVerses);
-router.get("/verse/:id", () => {});
+router.get("/verse/:id", getOneVerse);
 router.put(
   "/verse/:id",
   body("content").optional().isString(),
@@ -29,6 +34,6 @@ router.post(
   handleInputErrors,
   createVerse
 );
-router.delete("/verse/:id", () => {});
+router.delete("/verse/:id", deleteVerse);
 
 export default router;
