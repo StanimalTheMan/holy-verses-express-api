@@ -32,4 +32,5 @@ model Verse {
 
   belongsToId String
   belongsTo   User   @relation(fields: [belongsToId], references: [id])
+  // @@index([id, belongsToId])
 }
