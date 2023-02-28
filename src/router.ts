@@ -1,12 +1,11 @@
+import { createVerse, getOneVerse, getVerses } from "./handlers/verse";
 import { handleInputErrors } from "./modules/middleware";
 import { Router } from "express";
 import { body, check, validationResult } from "express-validator";
 
 const router = Router();
 
-router.get("/verse", (req, res) => {
-  res.json({ message: "message" });
-});
+router.get("/verse", getVerses);
 router.get("/verse/:id", () => {});
 router.put(
   "/verse/:id",
@@ -28,9 +27,7 @@ router.post(
   body("verses").isArray({ min: 1 }),
   check("verses.*").isInt(),
   handleInputErrors,
-  (req, res) => {
-    console.log(req);
-  }
+  createVerse
 );
 router.delete("/verse/:id", () => {});
 
