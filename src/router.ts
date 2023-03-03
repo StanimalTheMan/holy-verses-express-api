@@ -3,6 +3,7 @@ import {
   deleteVerse,
   getOneVerse,
   getVerses,
+  updateVerse,
 } from "./handlers/verse";
 import { handleInputErrors } from "./modules/middleware";
 import { Router } from "express";
@@ -21,7 +22,7 @@ router.put(
   body("verses").optional().isArray({ min: 1 }),
   check("verses.*").isInt(),
   handleInputErrors,
-  (req, res) => {}
+  updateVerse
 );
 router.post(
   "/verse",
