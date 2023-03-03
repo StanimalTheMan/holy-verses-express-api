@@ -37,7 +37,6 @@ export const createVerse = async (req, res) => {
       translation: req.body.translation,
       verses: req.body.verses,
       belongsToId: req.user.id,
-      updatedAt: new Date().toISOString(),
     },
   });
 
@@ -62,6 +61,7 @@ export const updateVerse = async (req, res) => {
   if (req.body.verses) {
     updatedData["verses"] = req.body.verses;
   }
+  updatedData["updatedAt"] = new Date().toISOString();
   const updated = await prisma.verse.update({
     where: {
       id_belongsToId: {

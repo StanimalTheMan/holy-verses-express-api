@@ -22,7 +22,7 @@ model User {
 model Verse {
   id          String @id @default(uuid())
   createdAt DateTime @default(now())
-  updatedAt DateTime
+  updatedAt DateTime @default(now())
 
   book String @db.VarChar(25)
   chapter Int
