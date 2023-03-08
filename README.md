@@ -24,3 +24,5 @@ Make a POST request here using token with a req body similar to below:
   "translation": "ESV",
   "verses": [2]
 }
+5. https://holy-verses-api.onrender.com/api/verse/:id
+You can make PUT, GET, DELETE request for a singular verse using an id of a verse you get back in using GET endpoint bulleted as 3. above
