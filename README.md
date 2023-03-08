@@ -17,6 +17,7 @@ Using a tool like Postman, until I make a decent UI:
 Make a GET request here to get all the verses using the token you get back after making a request to either of above endpoints.  The token should be placed as a Bearer Token under the Auth tab. 
 4. https://holy-verses-api.onrender.com/api/verse
 Make a POST request here using token with a req body similar to below:
+```
 {
   "content": "Be not rash with your mouth, nor let your heart be hasty to utter a word before God, for God is in heaven and you are on earth. Therefore let your words be few.",
   "book": "Ecclesiastes",
@@ -24,5 +25,6 @@ Make a POST request here using token with a req body similar to below:
   "translation": "ESV",
   "verses": [2]
 }
+```
 5. https://holy-verses-api.onrender.com/api/verse/:id
 You can make PUT, GET, DELETE request for a singular verse using an id of a verse you get back in using GET endpoint bulleted as 3. above
