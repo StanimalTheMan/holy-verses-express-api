@@ -18,13 +18,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res, next) => {
-  setTimeout(() => {
-    next(new Error("hello"));
-  }, 1);
+  // setTimeout(() => {
+  //   next(new Error("hello"));
+  // }, 1);
   // throw new Error("error");
   // console.log("hello from express");
   // res.status(200);
-  // res.json({ message: "hello" });
+  res.json({ message: "hello" });
 });
 
 app.use("/api", protect, router);
