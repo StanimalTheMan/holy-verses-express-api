@@ -14,7 +14,7 @@ Using a tool like Postman, until I make a decent UI:
   "password": CREATE_A_PASSWORD
 }
 3. https://holy-verses-api.onrender.com/api/verse 
-Make a GET request here to get all the verses using the token you get back after making a request to either of above endpoints.
+Make a GET request here to get all the verses using the token you get back after making a request to either of above endpoints.  The token should be placed as a Bearer Token under the Auth tab. 
 4. https://holy-verses-api.onrender.com/api/verse
 Make a POST request here using token with a req body similar to below:
 {
