@@ -28,19 +28,23 @@ export const getOneVerse = async (req, res) => {
   res.json({ data: verse });
 };
 
-export const createVerse = async (req, res) => {
-  const verse = await prisma.verse.create({
-    data: {
-      content: req.body.content,
-      book: req.body.book,
-      chapter: req.body.chapter,
-      translation: req.body.translation,
-      verses: req.body.verses,
-      belongsToId: req.user.id,
-    },
-  });
+export const createVerse = async (req, res, next) => {
+  try {
+    const verse = await prisma.verse.create({
+      data: {
+        content: req.body.content,
+        book: req.body.book,
+        chapter: req.body.chapter,
+        translation: req.body.translation,
+        verses: req.body.verses,
+        belongsToId: req.user.id,
+      },
+    });
 
-  res.json({ data: verse });
+    res.json({ data: verse });
+  } catch (e) {
+    next(e);
+  }
 };
 
 export const updateVerse = async (req, res) => {

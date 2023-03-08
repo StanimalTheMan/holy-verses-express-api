@@ -37,4 +37,8 @@ router.post(
 );
 router.delete("/verse/:id", deleteVerse);
 
+router.use((err, req, res, next) => {
+  console.log(err);
+  res.json({ message: "in router handler" });
+});
 export default router;
